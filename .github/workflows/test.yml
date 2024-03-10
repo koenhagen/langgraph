@@ -2,8 +2,6 @@ name: test
 
 on:
   push:
-    branches: [master]
-  pull_request:
 
 env:
   POETRY_VERSION: "1.7.1"
@@ -14,8 +12,6 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "3.9"
-          - "3.10"
           - "3.11"
     name: Python ${{ matrix.python-version }}
     steps:
