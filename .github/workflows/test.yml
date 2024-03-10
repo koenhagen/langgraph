@@ -33,9 +33,12 @@ jobs:
         run: poetry install --with test
 
       - name: Run core tests
-        shell: bash
-        run: |
-          make test
+        uses: koenhagen/measure-energy-action@v0.33
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: make test
+          count: 1
+          isBash: true
 
       - name: Ensure the tests did not create any additional files
         shell: bash
